@@ -1,45 +1,66 @@
-import { useState } from "react"
-import { getDataApi } from "../../api"
-import { Card } from "./Card"
+import { useState } from "react";
+import { getDataApi } from "../../api";
+import { Card } from "./Card";
 
 export const CardContainer = () => {
+  const [dataApi, setDataApi] = useState([]);
+  const [dataFetched, setDataFetched] = useState(false);
+  const [format, setFormat] = useState(false);
 
-    const [ dataApi, setDataApi ] = useState([])
-    const [dataFetched, setDataFetched] = useState(false)
-    
-    const dataFetch = async () => {
-        const data = await getDataApi()
-        setDataApi(data)
-        setDataFetched(true)
-        console.log(dataFetched)
-    }
+  const dataFetch = async () => {
+    const data = await getDataApi();
+    setDataApi(data);
+    setDataFetched(true);
+  };
 
-    if (!dataFetched) {
-        dataFetch()
+  if (!dataFetched) {
+    dataFetch();
+  }
 
-    }
+  const handlerFormat = () => {
+    setFormat(!format);
+    console.log(format);
+  };
 
-    return (
-        <div className="cardContainer"
+  return (
+    <>
+      <div
+        className="divButton"
         style={{
-            backgroundColor: 'violet',
-            display : 'flex',
-            gap : '10px',
-            flexWrap : 'wrap',
-            width :'100%'
+          display: "flex",
+          justifyContent: "center",
+          paddingBottom: "10px",
+          paddingTop: "10px",
         }}
+      >
+        <button
+          className="buttonFormat"
+          style={{
+            width: "200px",
+            height: "50px",
+          }}
+          onClick={handlerFormat}
         >
-            {   
-                dataApi &&
-                dataApi.map(card => (
-                    <div 
-                    className="card"
-                    key={card.key} 
-                    >
-                    <Card card={card} />
-                    </div>
-                ))
-            }
-        </div>
-    )
-}
+          Change format
+        </button>
+      </div>
+      <div
+        className="cardContainer"
+        style={{
+          backgroundColor: "violet",
+          display: "flex",
+          gap: "10px",
+          flexWrap: "wrap",
+          padding: "30px",
+        }}
+      >
+        {dataApi &&
+          dataApi.map((card) => (
+            <div className="card" key={card.key}>
+              <Card format={format} card={card} />
+            </div>
+          ))}
+      </div>
+    </>
+  );
+};

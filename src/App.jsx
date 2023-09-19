@@ -1,6 +1,6 @@
-import './App.css'
-import { CardContainer } from './assets/Components/CardContainer'
-import { Navbar } from './assets/Components/Navbar'
+import "./App.css";
+import { CardContainer } from "./assets/Components/CardContainer";
+import { Navbar } from "./assets/Components/Navbar";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Navbar />
       <CardContainer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
