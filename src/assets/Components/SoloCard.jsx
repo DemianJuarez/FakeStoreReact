@@ -1,21 +1,15 @@
 import { ActionCard, ButtonCard, InfoCard, PCard } from "./DataCard";
 
 export const SoloCard = (props) => {
-  const { image, title, description, price } = props;
+  const { image, title, description, price, style } = props;
   return (
     <div
       className="cardData"
       style={{
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#9D76C1",
+        ...style,
         width: "380px",
         height: "520px",
-        justifyContent: "space-around",
-        alignItems: "center",
-        padding: "8px",
-        "border-radius": "2rem",
-        border: "2px solid black",
+        flexDirection: "column",
       }}
     >
       <img

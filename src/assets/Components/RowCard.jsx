@@ -1,21 +1,15 @@
 import { ActionCard, ButtonCard, InfoCard } from "./DataCard";
 
 export const RowCard = (props) => {
-  const { image, title, description, price } = props;
+  const { image, title, description, price, style } = props;
   return (
     <div
       className="cardData"
       style={{
-        display: "flex",
-        flexDirection: "row",
-        backgroundColor: "#9D76C1",
+        ...style,
         width: "1200px",
         height: "250px",
-        justifyContent: "space-around",
-        alignItems: "center",
-        padding: "8px",
-        borderRadius: "2rem",
-        border: "2px solid black",
+        flexDirection: "row",
       }}
     >
       <img

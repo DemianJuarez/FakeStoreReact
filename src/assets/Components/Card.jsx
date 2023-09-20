@@ -4,6 +4,17 @@ import { SoloCard } from "./SoloCard";
 export const Card = (props) => {
   const { card, format } = props;
   const { image, title, description, price } = card;
+
+  const style = {
+    display: "flex",
+    backgroundColor: "#9D76C1",
+    justifyContent: "space-around",
+    alignItems: "center",
+    padding: "8px",
+    "border-radius": "2rem",
+    border: "2px solid black",
+  };
+
   return (
     <>
       {format ? (
@@ -12,6 +23,7 @@ export const Card = (props) => {
           title={title}
           description={description}
           price={price}
+          style={style}
         />
       ) : (
         <SoloCard
@@ -19,6 +31,7 @@ export const Card = (props) => {
           title={title}
           description={description}
           price={price}
+          style={style}
         />
       )}
     </>
