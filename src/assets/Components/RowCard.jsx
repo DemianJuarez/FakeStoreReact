@@ -8,7 +8,7 @@ export const RowCard = (props) => {
       style={{
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "lightblue",
+        backgroundColor: "#9D76C1",
         width: "1200px",
         height: "250px",
         justifyContent: "space-around",

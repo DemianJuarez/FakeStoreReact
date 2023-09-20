@@ -31,6 +31,7 @@ export const CardContainer = () => {
           justifyContent: "center",
           paddingBottom: "10px",
           paddingTop: "10px",
+          backgroundColor: "#713ABE",
         }}
       >
         <button
@@ -38,6 +39,7 @@ export const CardContainer = () => {
           style={{
             width: "200px",
             height: "50px",
+            backgroundColor: "#9D76C1",
           }}
           onClick={handlerFormat}
         >
@@ -47,7 +49,7 @@ export const CardContainer = () => {
       <div
         className="cardContainer"
         style={{
-          backgroundColor: "violet",
+          backgroundColor: "#713ABE",
           display: "flex",
           gap: "10px",
           flexWrap: "wrap",

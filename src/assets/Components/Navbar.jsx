@@ -7,7 +7,7 @@ export const Navbar = () => {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "red",
+        backgroundColor: "#5B0888",
         width: "100%",
         height: "75px",
       }}

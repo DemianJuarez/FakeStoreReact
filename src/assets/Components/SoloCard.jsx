@@ -8,7 +8,7 @@ export const SoloCard = (props) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "lightblue",
+        backgroundColor: "#9D76C1",
         width: "380px",
         height: "520px",
         justifyContent: "space-around",

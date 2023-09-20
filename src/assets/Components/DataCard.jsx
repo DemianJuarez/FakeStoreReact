@@ -6,7 +6,7 @@ export const ButtonCard = (props) => {
 export const ActionCard = (props) => {
   const { recomend, buy } = props;
   return (
-    <div className="cardAction">
+    <div className="cardAction" style={{ display: "flex", gap: "10px" }}>
       <ButtonCard content={recomend} />
       <ButtonCard content={buy} />
     </div>
