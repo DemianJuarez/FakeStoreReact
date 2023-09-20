@@ -1,4 +1,7 @@
-export const Navbar = () => {
+import { SearchBar } from "./SearchBar";
+
+export const Navbar = (props) => {
+  const { handleInput } = props;
   return (
     <nav
       className="navBar"
@@ -20,6 +23,7 @@ export const Navbar = () => {
       >
         TITULO TIENDA GOD
       </h1>
+      <SearchBar handleInput={handleInput} />
     </nav>
   );
 };

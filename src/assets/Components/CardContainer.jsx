@@ -1,25 +1,12 @@
 import { useState } from "react";
-import { getDataApi } from "../../api";
 import { Card } from "./Card";
 
-export const CardContainer = () => {
-  const [dataApi, setDataApi] = useState([]);
-  const [dataFetched, setDataFetched] = useState(false);
+export const CardContainer = (props) => {
+  const { dataApi } = props;
   const [format, setFormat] = useState(false);
-
-  const dataFetch = async () => {
-    const data = await getDataApi();
-    setDataApi(data);
-    setDataFetched(true);
-  };
-
-  if (!dataFetched) {
-    dataFetch();
-  }
 
   const handlerFormat = () => {
     setFormat(!format);
-    console.log(format);
   };
 
   return (
