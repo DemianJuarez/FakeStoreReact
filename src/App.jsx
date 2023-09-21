@@ -7,7 +7,7 @@ import { useState } from "react";
 function App() {
   const [dataApi, setDataApi] = useState([]);
   const [dataFetched, setDataFetched] = useState(false);
-  const [listSearch, setListSearch] = useState([]);
+  const [search, setSearch] = useState("");
 
   const dataFetch = async () => {
     const data = await getDataApi();
@@ -20,28 +20,30 @@ function App() {
     dataFetch();
   }
 
-  const [search, setSearch] = useState("");
-
   const handleInput = (e) => {
     console.log(e.target.value);
     setSearch(e.target.value);
-    getFilteredList(search);
   };
 
-  const getFilteredList = (search) => {
-    if (!search) {
+  const returnProducts = () => {
+    if (search.length > 0) {
+      const searchMin = search.toLowerCase();
+      const filteredData = dataApi.filter((product) => {
+        const productTitleMin = product.title.toLowerCase();
+        return productTitleMin.includes(searchMin);
+      });
+
+      return filteredData;
+    } else {
       return dataApi;
     }
-    console.log(dataApi.filter((product) => product.title.includes(search)));
-    setListSearch(dataApi.filter((product) => product.title.includes(search)));
   };
 
   return (
     <>
       <Navbar handleInput={handleInput} />
-      <CardContainer ProductList={listSearch} />
+      <CardContainer dataApi={returnProducts()} />
     </>
   );
 }
-
 export default App;
